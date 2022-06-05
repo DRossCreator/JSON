@@ -17,7 +17,6 @@ public enum PureResult<E> {
     case failure(E)
 }
 
-
 public final class EndpointClient {
 
     // MARK: - Types
@@ -28,8 +27,8 @@ public final class EndpointClient {
     // MARK: - Private Properties
 
     private let applicationSettings: ApplicationSettingsService
-    private var masterServerURL: String { "https://gateway.marvel.com" }
-    
+    private var masterServerURL: String { "https://api.magicthegathering.io" } // адрес сервера
+
     // MARK: - Initialization
 
     public init(applicationSettings: ApplicationSettingsService) {
@@ -109,14 +108,14 @@ public final class EndpointClient {
             requestURL = baseURL.appendingPathComponent(path)
         }
         if let queryItems = queryItems {
-            var urlComponents = URLComponents(string: requestURL.absoluteString) // "https://api.magicthegathering.io/v1/cards?name=Black%20Lotus"
+            var urlComponents = URLComponents(string: requestURL.absoluteString)
             urlComponents?.queryItems = queryItems
             guard let newRequestURL = urlComponents?.url else {
                 return nil
             }
             return newRequestURL
         }
-        
+
         return requestURL
     }
 
@@ -200,7 +199,6 @@ public final class EndpointClient {
     {
         guard let data = data else { throw EndpointClientError.noParsingData }
         do {
-            print("data = \(String(describing: (String(data: data, encoding: .utf8))))")
             return try decoder.decode(D.self, from: data)
         } catch {
             throw error
@@ -213,34 +211,32 @@ func mainAsync(block: @escaping () -> Void) {
 }
 
 extension JSONDecoder {
-    
+
     class func webApiDecoder() -> JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .webApiCustomDateDecodingStrategy
-        
+
         return decoder
     }
 }
 
 extension JSONDecoder.DateDecodingStrategy {
-    
     /// Переменная хранит в себе политику распознавания дат, которые приходят от WebApi
     /// - "yyyy-MM-dd HH:mm:ssZ" - полный формат даты (с часовым поясом)
     static var webApiCustomDateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
         return JSONDecoder.DateDecodingStrategy.custom { decoder -> Date in
             let container = try decoder.singleValueContainer()
             let dateString = try container.decode(String.self)
-            
+
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZ"
-            
+
             guard let date = dateFormatter.date(from: dateString) else {
                 throw DecodingError.dataCorruptedError(
                     in: container, debugDescription: "Cannot decode date string \(dateString)")
             }
-            
+
             return date
         }
     }
 }
-

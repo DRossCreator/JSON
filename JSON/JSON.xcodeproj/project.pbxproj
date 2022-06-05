@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7EDFED59284A51E2008387B2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDFED58284A51E2008387B2 /* Date.swift */; };
+		7E1DA697284D511D002E510A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1DA696284D511D002E510A /* Model.swift */; };
 		8F7518E627549D62001F05F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7518E527549D62001F05F2 /* AppDelegate.swift */; };
 		8F7518E827549D62001F05F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7518E727549D62001F05F2 /* SceneDelegate.swift */; };
 		8F7518EA27549D62001F05F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7518E927549D62001F05F2 /* ViewController.swift */; };
@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7EDFED58284A51E2008387B2 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		7E1DA696284D511D002E510A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8F7518E227549D62001F05F2 /* JSON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7518E527549D62001F05F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F7518E727549D62001F05F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,10 +51,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E1DA695284D5111002E510A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E1DA696284D511D002E510A /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		7EDFED5A284A528B008387B2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7EDFED60284A53CC008387B2 /* URLSettings */,
+				7EDFED60284A53CC008387B2 /* Settings */,
 				7EDFED5C284A52CF008387B2 /* Scenes */,
 			);
 			path = Sources;
@@ -74,18 +82,10 @@
 		7EDFED5C284A52CF008387B2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				7EDFED5D284A52E7008387B2 /* Extensions */,
+				7E1DA695284D5111002E510A /* Model */,
 				7EDFED5E284A5317008387B2 /* Controller */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		7EDFED5D284A52E7008387B2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				7EDFED58284A51E2008387B2 /* Date.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7EDFED5E284A5317008387B2 /* Controller */ = {
@@ -105,7 +105,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		7EDFED60284A53CC008387B2 /* URLSettings */ = {
+		7EDFED60284A53CC008387B2 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				8FE4B9192754A009005B617D /* AppSettings.swift */,
@@ -115,7 +115,7 @@
 				8FE4B9212754A0EF005B617D /* EndpointClientError.swift */,
 				8FE4B9232754A118005B617D /* ServerError.swift */,
 			);
-			path = URLSettings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		8F7518D927549D62001F05F2 = {
@@ -220,7 +220,7 @@
 				8FE4B91E2754A080005B617D /* RESTClient.swift in Sources */,
 				8FE4B9222754A0EF005B617D /* EndpointClientError.swift in Sources */,
 				8F7518E827549D62001F05F2 /* SceneDelegate.swift in Sources */,
-				7EDFED59284A51E2008387B2 /* Date.swift in Sources */,
+				7E1DA697284D511D002E510A /* Model.swift in Sources */,
 				8FE4B9242754A118005B617D /* ServerError.swift in Sources */,
 				8FE4B91A2754A009005B617D /* AppSettings.swift in Sources */,
 				8FE4B91C2754A059005B617D /* Endpoint.swift in Sources */,
@@ -375,7 +375,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LH4VV96A9U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = URLSessionStartProject/Resources/Info.plist;
+				INFOPLIST_FILE = JSON/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -403,7 +403,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LH4VV96A9U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = URLSessionStartProject/Resources/Info.plist;
+				INFOPLIST_FILE = JSON/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
